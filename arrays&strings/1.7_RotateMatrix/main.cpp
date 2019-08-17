@@ -1,3 +1,4 @@
+/*Write an algorithm to rotate by 90° a given NxN matrix */
 #include <stdlib.h>
 #include <iostream>
 #include <vector>

@@ -1,3 +1,4 @@
+/*Write an algorithm that performs a basic string compression*/
 #include <stdlib.h>
 #include <iostream>
 
