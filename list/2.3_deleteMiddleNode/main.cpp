@@ -1,4 +1,4 @@
-/* Find the kth element to the last using a singly linked list */
+/* Delete a node in the middle of a linked list by having access from this element only */
 #include <stdlib.h>
 #include <iostream>
 using namespace std;
@@ -30,8 +30,7 @@ class Node {
         cout << endl;
     }
 
-    // Time complexity -> O(N) : Space complexity -> O(1)
-    public: int findKth(int k){
+    public: Node* findKth(int k){
         Node* tmp = this;
         Node* kth = this;
         int count = 1;
@@ -42,8 +41,16 @@ class Node {
             tmp = tmp->next;
             count++;
         }
-        if(k > count) return -1;
-        return kth->val;
+        if(k > count) return NULL;
+        return kth;
+    }
+
+    // Time complexity -> O(1) : Space complexity -> O(1)
+    public: void deleteMiddleNode(Node* middle){
+        if(middle != NULL && middle->next != NULL){
+            middle->val = middle->next->val;
+            middle->next = middle->next->next;
+        }
     }
 };
 
@@ -53,7 +60,8 @@ int main(){
     list.push_back(2);
     list.push_back(3);
     list.push_back(4);
-    list.push_back(5);
-    list.push_back(6);
-    cout << list.findKth(2) << endl;
+    
+    list.printlist();
+    list.deleteMiddleNode(list.findKth(3));
+    list.printlist();
 }
