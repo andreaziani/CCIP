@@ -31,12 +31,13 @@ class Node {
     }
 };
 
+// Time complexity -> O(N) where N is the size of the longest list : Space complexity -> O(1)
 Node* sumLists(Node* l1, Node* l2){
     Node* res = NULL;
     Node* tmp = res;
     int r = 0;
     int q = 0;
-    while(l1 != NULL){
+    while(l1 != NULL){ // suppose that l1 is the longest list otherwise we should check the size of both lists
         if(l2 != NULL){
             q = (l1->val + l2->val + r) % 10;
             r = (l1->val + l2->val + r) / 10;
@@ -53,6 +54,10 @@ Node* sumLists(Node* l1, Node* l2){
         l1 = l1->next;
     }
     return res;
+}
+
+Node* sumLists_order(Node* l1, Node* l2){
+
 }
 
 int main(){
