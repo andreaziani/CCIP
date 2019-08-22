@@ -52,8 +52,30 @@ class Node {
     }
 };
 
+//Time complexity -> O(LOOPSIZE - k + K) : Space complexity -> O(1)
 Node* loopDetection_fastNSlowRunner(Node* l){
+    Node* slow = l; // it moves 1 step
+    Node* fast = l; // it moves 2 steps
     
+    /*If a loop is present, the two pointers will collide after LOOP_SIZE - k turns */
+    while(fast != NULL && fast->next != NULL){ 
+        slow = slow->next;
+        fast = fast->next->next;
+        if(slow == fast) break;
+    }
+    
+    /*if there isn't a loop*/
+    if(fast == NULL || fast->next == NULL) return NULL;
+    
+    /*Move slow to head. Each are k steps from the loop start. if they move at the same space, they must meet at loop start*/
+    slow = l;
+    while(slow != fast){
+        slow = slow->next;
+        fast = fast->next;
+    }
+    
+    return slow;
+
 }
 //Time complexity -> O(N) : Space complexity -> O(N)
 Node* loopDetection(Node* l){
