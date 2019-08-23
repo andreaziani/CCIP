@@ -8,6 +8,7 @@ Push and pop should operate in O(1)!
 using namespace std;
 
 // Idea -> keep track of the minimum of a current state, so if a node is popped the next top has its own min
+// Another solution might be using another stack to keep track of the localMins and pop an element only if is equal to the element popped in the first stack
 class StackNode{
     public: int data;
     public: StackNode* next;
