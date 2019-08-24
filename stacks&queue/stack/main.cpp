@@ -2,7 +2,6 @@
 #include <iostream>
 
 using namespace std;
-
 class StackNode{
     public: int data;
     public: StackNode* next;
@@ -13,28 +12,35 @@ class StackNode{
 };
 
 class Stack{
-    public: StackNode* top;
+    public: StackNode* t;
+    public: int size;
+    
+    public: Stack(){
+        size = 0;
+    }
 
     public: int pop(){
-        if(top == NULL) throw new exception();
-        int item = top->data;
-        top = top->next;
+        if(t == NULL) throw new exception();
+        int item = t->data;
+        t = t->next;
+        size--;
         return item;
     }
 
     public: void push(int d){
         StackNode* tmp = new StackNode(d);
-        tmp->next = top;
-        top = tmp;
+        tmp->next = t;
+        t = tmp;
+        size++;
     }
 
     public: int top(){
-        if(top == NULL) throw new exception();
-        return top->data;
+        if(t == NULL) throw new exception();
+        return t->data;
     }
 
     public: bool isEmpty(){
-        return top == NULL;
+        return t == NULL;
     }
 };
 
