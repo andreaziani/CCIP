@@ -64,6 +64,6 @@ int main(){
     t.insert("helon");
 
     cout << t.searchKey("hello") << endl; // true
-    cout << t.searchKey("he") << endl; // false, no key
+    cout << t.searchKey("dsd") << endl; // false, no key
     cout << t.searchKey("hel") << endl; // false, no end
 }
