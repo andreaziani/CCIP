@@ -1,5 +1,11 @@
 /*
-    Min heap implementation
+    Min heap implementation. 
+    insert() -> time compl = O(log n)
+    deleteKey() -> time compl = O(log n)
+    extract min() -> time compl = O(log n)
+    get mim() -> time compl = O(1)
+    decreaseKey() -> time compl = O(log n)
+
 */
 #include <stdlib.h>
 #include <iostream>
