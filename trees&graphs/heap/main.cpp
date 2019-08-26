@@ -57,7 +57,7 @@ class Heap{
         extractMin(); // then we extract the root and restore heap props with heapify().
     }
 
-    private: void heapify(int i){ // if it's higher swap the current element with the smallest of his childs until we have the min element at the root again
+    private: void heapify(int i){ // if the current is higher than his childs swap the current element with the smallest of his childs. Repeat until we have the min element at the root again
         int l = left(i);
         int r = right(i);
         int smallest = i;
