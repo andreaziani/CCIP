@@ -8,16 +8,13 @@ using namespace std;
 class TrieNode {
     public: TrieNode *nodes[ALPHABET_SIZE];
     public: bool isEndOfWord; // true if this node is the end of a word
+    
     public: TrieNode(){
         isEndOfWord = false; 
         for (int i = 0; i < ALPHABET_SIZE; i++) 
             this->nodes[i] = NULL; 
     }
-    public: TrieNode(bool isEnd){
-        this->isEndOfWord = isEnd;
-        for (int i = 0; i < ALPHABET_SIZE; i++) 
-            this->nodes[i] = NULL; 
-    }
+    
 };
 
 class Trie{
@@ -32,7 +29,7 @@ class Trie{
         TrieNode* tmp = root;
         for (int i = 0; i < s.length(); i++) { 
             int index = s[i] - 'a'; 
-            if (!tmp->nodes[index]) 
+            if (!tmp->nodes[index]) // if a char is missing, add the node of this char
                 tmp->nodes[index] = new TrieNode(); 
     
             tmp = tmp->nodes[index]; 
