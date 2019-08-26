@@ -42,8 +42,6 @@ class Trie{
 
     public: bool searchKey(string s){
         if(s.size() == 0) return false; 
-        int counter = 0;
-        char c = s.at(counter) - 'a';
         TrieNode* tmp = root;
         
         // check each char
