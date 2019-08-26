@@ -58,13 +58,12 @@ class Trie{
 
 int main(){
     Trie t = Trie();
-    t.insert("ciao");
-    t.insert("canaglia");
-    t.insert("cina");
-    t.insert("cane");
-    t.insert("caneve");
+    t.insert("hi");
+    t.insert("hello");
+    t.insert("halo");
+    t.insert("helon");
 
-    cout << t.searchKey("cane") << endl; // true
-    cout << t.searchKey("abba") << endl; // false, no key
-    cout << t.searchKey("can") << endl; // false, no end
+    cout << t.searchKey("hello") << endl; // true
+    cout << t.searchKey("he") << endl; // false, no key
+    cout << t.searchKey("hel") << endl; // false, no end
 }
