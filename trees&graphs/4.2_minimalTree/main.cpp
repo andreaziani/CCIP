@@ -10,7 +10,6 @@ class Node{
     public: int val;
     public: Node* right;
     public: Node* left;
-    public: Node* parent;
 
     public: Node() {}
     public: Node(int val){
