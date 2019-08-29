@@ -48,8 +48,26 @@ bool checkHeight(TreeNode* root){
     return (maxHeight - minHeight < 2);
 }
 
+
+int checkHeightDFS(TreeNode* root){
+    if(root == NULL) return -1;
+
+    int leftH = checkHeightDFS(root->left);
+    if(leftH == INT_MIN) return INT_MIN; // pass error up
+
+    int rightH = checkHeightDFS(root->right);
+    if(rightH == INT_MIN) return INT_MIN; // pass error up
+    
+    int hDiff = leftH - rightH;
+    if(abs(hDiff) > 1) return INT_MIN; // found error pass it back
+    else{
+        return (leftH > rightH ? leftH: rightH) + 1;
+    }
+}
+
 bool isBalanced(TreeNode* root){
     return checkHeight(root);
+    // return checkHeightDFS(root) != INT_MIN;
 }
 
 int main(){ 
